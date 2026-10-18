@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XI RPL 1 — Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><span>XI RPL 1</span></div>
+      <div class="side-label">MENU UTAMA</div>
+      <nav class="nav-menu">
+        <a class="nav-link active" href="#dashboard" data-page="Dashboard"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="#siswa" data-page="Data Siswa"><span>▤</span> Data Siswa</a>
+        <a class="nav-link" href="#jadwal" data-page="Jadwal Pelajaran"><span>▦</span> Jadwal Pelajaran</a>
+        <a class="nav-link" href="#materi" data-page="Materi & Tugas"><span>▣</span> Materi & Tugas</a>
+        <a class="nav-link" href="#pengumuman" data-page="Pengumuman"><span>◉</span> Pengumuman</a>
+        <a class="nav-link" href="https://www.instagram.com/sebelas_erpeelsatu/" target="_blank" data-page="Galeri Kelas"><span>▧</span> Galeri Kelas</a>
+        <a class="nav-link" href="#pengaturan" data-page="Pengaturan"><span>⚙</span> Pengaturan</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-profile"><div class="avatar">RPL</div><div><b>XI RPL 1</b><small>Website Kelas</small></div></div>
+        <button class="logout" id="themeToggle">◐ <span>Ganti Tema</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb">Pages <span>/</span> <b id="pageTitle">Dashboard</b></div>
+        <div class="top-actions">
+          <label class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Cari siswa, tugas..."></label>
+          <button class="icon-button" title="Notifikasi" id="notifyBtn">♧<i></i></button>
+          <div class="top-profile"><div class="avatar">R</div><div><b>XI RPL 1</b><small>Pengunjung</small></div><span>⌄</span></div>
+        </div>
+      </header>
+
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">SELAMAT DATANG DI WEBSITE KELAS</p>
+          <h1>Halo, Anak RPL! <span>✦</span></h1>
+          <p class="muted">Tempat informasi, tugas, jadwal, dan cerita kelas XI RPL 1.</p>
+        </div>
+        <div class="date-pill" id="todayDate">Memuat tanggal...</div>
+      </section>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="tag">👋 HALO, XI RPL 1</span>
+          <h2>Belajar bareng,<br><em>berkembang bareng.</em></h2>
+          <p>Bangun skill, jaga kekompakan, dan buat karya yang bisa dibanggakan.</p>
+          <a href="#materi" class="primary-button">Lihat materi <span>→</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="code-window"><div class="window-dots"><i></i><i></i><i></i></div><code><span>const</span> className = <b>"XI RPL 1"</b>;<br><span>function</span> <strong>learn()</strong> {<br>&nbsp;&nbsp;return <b>"keep growing"</b>;<br>}</code></div>
+          <div class="float-chip chip-top">{"</>"}</div><div class="float-chip chip-bottom">✦  RPL</div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><div class="stat-icon purple">♙</div><div><p>Total Siswa</p><h3 id="studentCount">35</h3><small>Anggota kelas</small></div><span class="stat-spark">↗</span></article>
+        <article class="stat-card"><div class="stat-icon blue">▤</div><div><p>Materi & Tugas</p><h3 id="taskCount">0</h3><small>Catatan pembelajaran</small></div><span class="stat-spark">↗</span></article>
+        <article class="stat-card"><div class="stat-icon orange">◷</div><div><p>Agenda Mendatang</p><h3 id="eventCount">03</h3><small>Rencana kelas</small></div><span class="stat-spark">↗</span></article>
+        <article class="stat-card"><div class="stat-icon green">✧</div><div><p>Wali Kelas</p><h3 class="teacher-stat">Bu Normalita</h3><small>Pembimbing kelas</small></div></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel performance-panel" id="materi">
+          <div class="panel-heading"><div><p class="eyebrow">AKTIVITAS BELAJAR</p><h3>Jadwal</h3></div><button class="text-button" id="showAllTasks">Lihat semua ↗</button></div>
+          <div class="task-list" id="taskList">
+            <article class="task-row"><div class="task-symbol red">WEB</div><div class="task-info"><b>Senin</b><small>Pemrograman Web · Pak Kurniawan</small></div><span class="status status-ready">Materi</span></article>
+            <article class="task-row"><div class="task-symbol orange">Grafis</div><div class="task-info"><b>Selasa</b><small>Pemrograman Teks, Grafis, Multimedia - Produk Kreatif Dan Wirausaha · Bu Febti - Pak Habib</small></div><span class="status status-ready">Materi</span></article>
+            <article class="task-row"><div class="task-symbol purple">Mobile</div><div class="task-info"><b>Rabu</b><small>Pemrograman Perangkat Bergerak · Pak Hakiki</small></div><span class="status status-ready">Materi</span></article>
+            <article class="task-row"><div class="task-symbol orange">MPP</div><div class="task-info"><b>Kamis</b><small>Basis Data - Mata Pelajaran Pilihan · Buk Omi - Buk Annur</small></div><span class="status status-ready">Materi</span></article>
+            <article class="task-row"><div class="task-symbol green">PKWU</div><div class="task-info"><b>Jum'at</b><small>Produk Kreatif Dan Kewirausahaan · Pak Habib</small></div><span class="status status-ready">Materi</span></article>
+            <article class="task-row"><div class="task-symbol blue">DB</div><div class="task-info"><b>Sabtu</b><small>Basis Data · Buk Omi</small></div><span class="status status-ready">Materi</span></article>
+          </div>
+        </div>
+        <div class="panel schedule-panel" id="jadwal">
+          <div class="panel-heading"><div><p class="eyebrow">JANGAN SAMPAI LUPA</p><h3>Agenda Kelas</h3></div><button class="round-button" id="addEvent" title="Tambah agenda">＋</button></div>
+          <div class="timeline" id="eventList"> <!-- EVENT LIST -->
+          </div>
+          <div class="quote-box"><span>“</span><p>Great things are done by a series of small things brought together.</p><small>— Vincent van Gogh</small></div>
+        </div>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <div class="panel students-panel" id="siswa">
+          <div class="panel-heading"><div><p class="eyebrow">KELUARGA KELAS</p><h3>Teman Sekelas</h3></div><button class="text-button" id="showStudents">Lihat daftar ↗</button></div>
+          <div class="student-preview" id="studentPreview">
+            <div class="student-person"><div class="student-avatar av1">D</div><b>Devin Saputra Pratama</b><small>Ketua kelas</small></div>
+            <div class="student-person"><div class="student-avatar av2">A</div><b>Atira Ambar</b><small>Sekretaris</small></div>
+            <div class="student-person"><div class="student-avatar av3">A</div><b>Adam Malik</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av4">A</div><b>AL'Qairan Faiz</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av5">A</div><b>Aldalika</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av6">A</div><b>Amira Putri</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av7">A</div><b>Annisa Nadya Yuspitasari</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av9">B</div><b>Bagus Ramandika</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av10">F</div><b>Fayad Abqari</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av11">F</div><b>Fitriani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av12">H</div><b>Hariana</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av13">I</div><b>Ibnu Al Haqoni</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av14">I</div><b>Iki Egi Rahman</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av15">K</div><b>Kharizza Dinda Putri</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av16">L</div><b>Lodia Indriani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av17">M</div><b>Melati</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av18">M</div><b>Muhammad Asrul Fais</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av19">M</div><b>Muhammad Fadil Murdaffa</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av20">N</div><b>Nailaqory</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av21">N</div><b>Nazifa Maulida</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av22">N</div><b>Nur Fahira</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av23">N</div><b>Nurul Hinayah</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av24">R</div><b>Rifqi Rasanjani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av25">R</div><b>Rijalul Hervaldi</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av26">R</div><b>Risa Oktapia Arianti</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av27">S</div><b>Safa Aulia Zahra</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av28">S</div><b>Septi Febriani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av29">S</div><b>Silfa Rindiani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av30">S</div><b>Sukmawatul Wardani</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av31">V</div><b>Vannya Mahana Putri</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av32">V</div><b>Virgie Alif Sirmayadi</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av33">W</div><b>Wahyu Aji Saputra</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av34">W</div><b>Winda Aulia Sari</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av35">W</div><b>Windi Yuli Lastri</b><small>Anggota</small></div>
+            <div class="student-person"><div class="student-avatar av36">Y</div><b>Yesi Pazira Sarastri</b><small>Anggota</small></div>
+          </div>
+        </div>
+        <div class="panel announcement-panel" id="pengumuman">
+          <div class="panel-heading"><div><p class="eyebrow">INFO TERBARU</p><h3>Pengumuman</h3></div><span class="notification-count">2 baru</span></div>
+          <div class="announcement"><span class="announce-icon">✦</span><div><b>Selamat datang di website kelas!</b><p>Website ini masih dalam tahap pengembangan.</p><small>Pengumuman umum</small></div></div>
+          <div class="announcement"><span class="announce-icon announce-blue">▤</span><div><b>Jangan lupa cek tugas</b><p>Periksa materi dan tugas dari guru secara berkala.</p><small>Pengingat kelas</small></div></div>
+        </div>
+      </section>
+
+      <footer class="footer"><span>© <span id="year"></span> XI RPL 1</span><span>— Virgie Alif</span></footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
